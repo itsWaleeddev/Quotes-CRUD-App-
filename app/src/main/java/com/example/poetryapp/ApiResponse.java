@@ -1,46 +1,39 @@
 package com.example.poetryapp;
 
-import com.example.poetryapp.models.PoetryInfo;
+import com.example.poetryapp.models.Data;
 
+import java.io.Serializable;
+import java.lang.String;
 import java.util.List;
 
-public class ApiResponse {
-    private List<PoetryInfo> data;
+public class ApiResponse  {
+  private List<Data> data;
 
-    private String message;
+  private String message;
 
-    private String status;
+  private String status;
 
-    @Override
-    public String toString() {
-        return "ApiResponse{" +
-                "data=" + data +
-                ", message='" + message + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
+  public List<Data> getData() {
+    return this.data;
+  }
 
-    public List<PoetryInfo> getData() {
-        return this.data;
-    }
+  public void setData(List<Data> data) {
+    this.data = data;
+  }
 
-    public void setData(List<PoetryInfo> data) {
-        this.data = data;
-    }
+  public String getMessage() {
+    return this.message;
+  }
 
-    public String getMessage() {
-        return this.message;
-    }
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  public String getStatus() {
+    return this.status;
+  }
 
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  public void setStatus(String status) {
+    this.status = status;
+  }
 }

@@ -10,35 +10,35 @@
     tools:context=".AddPoetry">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/addpoetrytoolbar"
+        android:id="@+id/Addtoolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Add Poetry" />
+        app:title="Add Quote" />
 
     <EditText
-        android:id="@+id/poetry_data"
+        android:id="@+id/quote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Write Poetry"
+        android:hint="Write Quote"
         android:inputType="text"
         android:minHeight="48dp"
         android:paddingLeft="10dp"
         android:paddingRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addpoetrytoolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/Addtoolbar" />
 
     <EditText
-        android:id="@+id/poet_name"
+        android:id="@+id/Author_Name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Poet Name"
+        android:hint="Author Name"
         android:inputType="text"
         android:minHeight="48dp"
         android:paddingLeft="10dp"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poetry_data" />
+        app:layout_constraintTop_toBottomOf="@+id/quote" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/addButton"
@@ -57,6 +57,6 @@
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poet_name" />
+        app:layout_constraintTop_toBottomOf="@+id/Author_Name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

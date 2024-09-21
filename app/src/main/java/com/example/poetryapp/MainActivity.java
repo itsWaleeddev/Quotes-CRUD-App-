@@ -1,15 +1,10 @@
 package com.example.poetryapp;
 
-import static android.app.ProgressDialog.show;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,7 +13,6 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
@@ -28,7 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.poetryapp.adapters.ReyclerViewAdapter;
-import com.example.poetryapp.models.PoetryInfo;
+import com.example.poetryapp.models.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,15 +30,14 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ReyclerViewAdapter adapter;
     MyInterface myInterface;
     Toolbar toolbar;
-    List<PoetryInfo> poetryInfoList = new ArrayList<>();
+    List<Data> dataList = new ArrayList<>();
+
     private ActivityResultLauncher<Intent> activityResultLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                     new ActivityResultCallback<ActivityResult>() {
@@ -53,15 +46,11 @@ public class MainActivity extends AppCompatActivity {
             if(result.getResultCode()==RESULT_OK && result.getData()!=null){
                 int position = result.getData().getIntExtra("position", 0);
                 String updatedData = result.getData().getStringExtra("updatedData");
-                String poetry = result.getData().getStringExtra("poetry");
-                String poetName = result.getData().getStringExtra("poet_name");
                 if(updatedData!=null){
-                    poetryInfoList.get(position).setPoetry_data(updatedData);
+                    dataList.get(position).setQuote(updatedData);
                     adapter.notifyItemChanged(position);
                 }
-                if(poetry!=null && poetName!=null){
-                    getData();
-                }
+                getData();
             }
         }
     });
@@ -96,9 +85,8 @@ public class MainActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         if (response.body().getStatus().equals("1")) {
                             ApiResponse apiResponse = response.body();
-                            poetryInfoList = apiResponse.getData();
-                            Log.d("checkapi", "onResponse: " + apiResponse.toString());
-                            setAdapter(poetryInfoList);
+                            dataList = apiResponse.getData();
+                            setAdapter(dataList);
                         } else {
                             Toast.makeText(MainActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -115,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setAdapter(List<PoetryInfo> poetryModels) {
+    private void setAdapter(List<Data> poetryModels) {
         adapter = new ReyclerViewAdapter(this, poetryModels, activityResultLauncher);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -129,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
        int id = item.getItemId();
-       if(id == R.id.add_poetry){
+       if(id == R.id.add_Quote){
            Intent intent = new Intent(MainActivity.this, AddPoetry.class);
            activityResultLauncher.launch(intent);
            return true;

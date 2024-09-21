@@ -10,28 +10,27 @@
     tools:context=".UpdateActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/updatepoetrytoolbar"
+        android:id="@+id/updatetoolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
-        android:title="Update Poetry"
-        android:titleTextAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Update Quote" />
 
     <EditText
-        android:id="@+id/updatepoetrydata"
+        android:id="@+id/updatequotedata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:minHeight="60dp"
-        android:hint="Update Poetry Data"
+        android:hint="Update Quote Data"
         android:paddingLeft="10dp"
         android:paddingRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatepoetrytoolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/updatetoolbar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submitbutton"
@@ -43,6 +42,6 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatepoetrydata" />
+        app:layout_constraintTop_toBottomOf="@+id/updatequotedata" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

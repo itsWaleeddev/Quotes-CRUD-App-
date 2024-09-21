@@ -23,9 +23,9 @@ import retrofit2.Retrofit;
 
 public class UpdateActivity extends AppCompatActivity {
     Toolbar toolbar;
-    EditText updatePoetryData;
+    EditText updateQuoteData;
     AppCompatButton submitButton;
-    String poetryData  = null;
+    String quoteData  = null;
     int id;
     MyInterface myInterface;
     String updatedData = null;
@@ -45,8 +45,8 @@ public class UpdateActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(updatePoetryData.toString().isEmpty()){
-                    updatePoetryData.setError("Field is Empty");
+                if(updateQuoteData.toString().isEmpty()){
+                    updateQuoteData.setError("Field is Empty");
                 }
                 else{
                     callUpdateApi();
@@ -55,13 +55,13 @@ public class UpdateActivity extends AppCompatActivity {
         });
     }
     private void initialization(){
-        toolbar = findViewById(R.id.updatepoetrytoolbar);
-        updatePoetryData = findViewById(R.id.updatepoetrydata);
+        toolbar = findViewById(R.id.updatetoolbar);
+        updateQuoteData = findViewById(R.id.updatequotedata);
         submitButton = findViewById(R.id.submitbutton);
-        poetryData = getIntent().getStringExtra("PoetryData");
+        quoteData = getIntent().getStringExtra("QuoteData");
         id = getIntent().getIntExtra("id", 0);
         position = getIntent().getIntExtra("position", 0);
-        updatePoetryData.setText(poetryData);
+        updateQuoteData.setText(quoteData);
         Retrofit retrofit = ApiClient.getClient();
         myInterface = retrofit.create(MyInterface.class);
     }
@@ -80,7 +80,7 @@ public class UpdateActivity extends AppCompatActivity {
       });
     }
     private void callUpdateApi(){
-        updatedData = updatePoetryData.getText().toString();
+        updatedData = updateQuoteData.getText().toString();
         myInterface.updatePoetry(updatedData, id).enqueue(new Callback<DeleteResponse>() {
             @Override
             public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {

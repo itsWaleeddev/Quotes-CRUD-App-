@@ -22,11 +22,11 @@ import retrofit2.Retrofit;
 
 public class AddPoetry extends AppCompatActivity {
     Toolbar toolbar;
-    EditText poetry_data, poet_name;
+    EditText quote, Author_Name;
     AppCompatButton addButton;
     MyInterface myInterface;
-    String poetry = null;
-    String poetName = null;
+    String Quote = null;
+    String authorName = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,15 +42,15 @@ public class AddPoetry extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                poetry = poetry_data.getText().toString();
-                poetName = poet_name.getText().toString();
-                if(poetry.isEmpty()){
-                    poetry_data.setError("Enter a data to add");
+                Quote = quote.getText().toString();
+                authorName = Author_Name.getText().toString();
+                if(Quote.isEmpty()){
+                    quote.setError("Write a quote to add");
                 }
                 else
                 {
-                    if (poetName.isEmpty()) {
-                        poet_name.setError("Enter a poet name");
+                    if (authorName.isEmpty()) {
+                        Author_Name.setError("Enter a Author name");
                     } else {
                         callApi();
                     }
@@ -59,9 +59,9 @@ public class AddPoetry extends AppCompatActivity {
         });
     }
     private void initialization(){
-        toolbar = findViewById(R.id.addpoetrytoolbar);
-        poetry_data = findViewById(R.id.poetry_data);
-        poet_name = findViewById(R.id.poet_name);
+        toolbar = findViewById(R.id.Addtoolbar);
+        quote = findViewById(R.id.quote);
+        Author_Name = findViewById(R.id.Author_Name);
         addButton = findViewById(R.id.addButton);
         Retrofit retrofit = ApiClient.getClient();
         myInterface = retrofit.create(MyInterface.class);
@@ -73,16 +73,13 @@ public class AddPoetry extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.putExtra("poetry", poetry);
-                intent.putExtra("poet_name", poetName);
-                setResult(RESULT_OK, intent);
+                setResult(RESULT_OK);
                 finish();
             }
         });
     }
     private void callApi(){
-        myInterface.addPoetry(poetry, poetName).enqueue(new Callback<DeleteResponse>() {
+        myInterface.addPoetry(Quote, authorName).enqueue(new Callback<DeleteResponse>() {
             @Override
             public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {
                 if(response.body().getStatus().equals("1")){
