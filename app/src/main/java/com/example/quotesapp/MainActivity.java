@@ -1,4 +1,4 @@
-package com.example.poetryapp;
+package com.example.quotesapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +21,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.poetryapp.adapters.ReyclerViewAdapter;
-import com.example.poetryapp.models.Data;
+import com.example.quotesapp.R;
+import com.example.quotesapp.adapters.ReyclerViewAdapter;
+import com.example.quotesapp.models.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
        int id = item.getItemId();
        if(id == R.id.add_Quote){
-           Intent intent = new Intent(MainActivity.this, AddPoetry.class);
+           Intent intent = new Intent(MainActivity.this, AddQuote.class);
            activityResultLauncher.launch(intent);
            return true;
        }

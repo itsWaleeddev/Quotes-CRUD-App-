@@ -1,4 +1,4 @@
-package com.example.poetryapp;
+package com.example.quotesapp;
 
 import org.junit.Test;
 

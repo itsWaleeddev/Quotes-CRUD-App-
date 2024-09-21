@@ -1,4 +1,4 @@
-package com.example.poetryapp.adapters;
+package com.example.quotesapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,12 +12,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.poetryapp.ApiClient;
-import com.example.poetryapp.DeleteResponse;
-import com.example.poetryapp.MyInterface;
-import com.example.poetryapp.UpdateActivity;
-import com.example.poetryapp.databinding.SingleRowBinding;
-import com.example.poetryapp.models.Data;
+import com.example.quotesapp.ApiClient;
+import com.example.quotesapp.DeleteResponse;
+import com.example.quotesapp.MyInterface;
+import com.example.quotesapp.UpdateActivity;
+import com.example.quotesapp.databinding.SingleRowBinding;
+import com.example.quotesapp.models.Data;
 
 
 import java.util.List;

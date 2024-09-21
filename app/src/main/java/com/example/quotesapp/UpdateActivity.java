@@ -1,4 +1,4 @@
-package com.example.poetryapp;
+package com.example.quotesapp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.quotesapp.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;

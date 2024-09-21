@@ -1,24 +1,19 @@
-package com.example.poetryapp;
-
-import com.example.poetryapp.models.Data;
+package com.example.quotesapp;
 
 import java.io.Serializable;
 import java.lang.String;
-import java.util.List;
 
-public class ApiResponse  {
-  private List<Data> data;
-
+public class DeleteResponse  {
   private String message;
 
   private String status;
 
-  public List<Data> getData() {
-    return this.data;
-  }
-
-  public void setData(List<Data> data) {
-    this.data = data;
+  @Override
+  public String toString() {
+    return "DeleteResponse{" +
+            "message='" + message + '\'' +
+            ", status='" + status + '\'' +
+            '}';
   }
 
   public String getMessage() {

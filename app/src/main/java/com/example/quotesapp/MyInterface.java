@@ -1,4 +1,4 @@
-package com.example.poetryapp;
+package com.example.quotesapp;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

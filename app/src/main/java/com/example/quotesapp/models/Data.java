@@ -1,4 +1,4 @@
-package com.example.poetryapp.models;
+package com.example.quotesapp.models;
 
 import java.lang.String;
 

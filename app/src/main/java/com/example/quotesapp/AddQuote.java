@@ -1,6 +1,5 @@
-package com.example.poetryapp;
+package com.example.quotesapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,12 +14,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.quotesapp.R;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class AddPoetry extends AppCompatActivity {
+public class AddQuote extends AppCompatActivity {
     Toolbar toolbar;
     EditText quote, Author_Name;
     AppCompatButton addButton;
@@ -83,13 +84,13 @@ public class AddPoetry extends AppCompatActivity {
             @Override
             public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {
                 if(response.body().getStatus().equals("1")){
-                    Toast.makeText(AddPoetry.this, "Data Successfully added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddQuote.this, "Data Successfully added", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<DeleteResponse> call, Throwable t) {
-                Toast.makeText(AddPoetry.this, "Failed to add data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddQuote.this, "Failed to add data", Toast.LENGTH_SHORT).show();
                 Log.d("failure", "onFailure: " + t.getLocalizedMessage());
             }
         });

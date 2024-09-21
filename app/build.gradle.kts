@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.poetryapp"
+    namespace = "com.example.quotesapp"
     compileSdk = 34
     buildFeatures{
         viewBinding = true
     }
     defaultConfig {
-        applicationId = "com.example.poetryapp"
+        applicationId = "com.example.quotesapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
