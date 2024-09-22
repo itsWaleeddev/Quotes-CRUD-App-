@@ -2,6 +2,7 @@ package com.example.quotesapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.quotesapp.ApiClient;
 import com.example.quotesapp.DeleteResponse;
 import com.example.quotesapp.MyInterface;
+import com.example.quotesapp.R;
 import com.example.quotesapp.UpdateActivity;
 import com.example.quotesapp.databinding.SingleRowBinding;
 import com.example.quotesapp.models.Data;
 
 
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,10 +36,12 @@ public class ReyclerViewAdapter extends RecyclerView.Adapter<ReyclerViewAdapter.
     MyInterface myInterface;
     ActivityResultLauncher<Intent> activityResultLauncher;
     Retrofit retrofit;
+    Drawable drawable;
 
-    public ReyclerViewAdapter(Context context, List<Data> dataList, ActivityResultLauncher<Intent> activityResultLauncher) {
+    public ReyclerViewAdapter(Context context, List<Data> dataList, ActivityResultLauncher<Intent> activityResultLauncher, Drawable drawable) {
         this.context = context;
         this.dataList = dataList;
+        this.drawable = drawable;
         this.activityResultLauncher = activityResultLauncher;
         retrofit = ApiClient.getClient();
         myInterface = retrofit.create(MyInterface.class);
@@ -54,6 +59,7 @@ public class ReyclerViewAdapter extends RecyclerView.Adapter<ReyclerViewAdapter.
     //what will happen after we create the viewholder object
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.binding.getRoot().setBackground(drawable);
         holder.binding.authorName.setText(dataList.get(position).getAuthor_Name());
         holder.binding.quoteData.setText(dataList.get(position).getQuote());
         holder.binding.datetime.setText(dataList.get(position).getData_Time());

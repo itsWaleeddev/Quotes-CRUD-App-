@@ -3,32 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:padding="10dp"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/update_background"
+    android:hapticFeedbackEnabled="true"
+    android:padding="10dp"
     tools:context="com.example.quotesapp.UpdateActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/updatetoolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@drawable/toolbar_design"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Update Quote" />
+        app:title="Update Quote"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:titleTextColor="@color/black" />
 
     <EditText
         android:id="@+id/updatequotedata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:minHeight="60dp"
-        android:hint="Update Quote Data"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/edittext_shape"
+        android:gravity="start|top"
+        android:hint="Update Quote"
+        android:inputType="textMultiLine"
+        android:minHeight="140dp"
         android:paddingLeft="10dp"
-        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updatetoolbar" />
 
@@ -37,10 +48,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="@drawable/buttons_design"
         android:text="Submit"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updatequotedata" />
 

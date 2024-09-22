@@ -1,6 +1,7 @@
 package com.example.quotesapp;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +28,7 @@ import com.example.quotesapp.models.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     MyInterface myInterface;
     Toolbar toolbar;
     List<Data> dataList = new ArrayList<>();
+    private final int[] drawableIds = {R.drawable.one, R.drawable.two};
 
     private ActivityResultLauncher<Intent> activityResultLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -105,7 +108,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setAdapter(List<Data> poetryModels) {
-        adapter = new ReyclerViewAdapter(this, poetryModels, activityResultLauncher);
+        Random random = new Random();
+        int randomIndex = random.nextInt(drawableIds.length);
+        Drawable drawable = getResources().getDrawable(drawableIds[randomIndex]);
+        adapter = new ReyclerViewAdapter(this, poetryModels, activityResultLauncher, drawable);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
