@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 } catch (Exception e) {
-                    Log.d("exception", "onFailure: " + e.getLocalizedMessage());
+                    Log.d("exception", "onFailure: " + e.getMessage());
                 }
             }
 

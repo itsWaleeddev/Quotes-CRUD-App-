@@ -88,7 +88,7 @@ public class UpdateActivity extends AppCompatActivity {
             public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {
                 try {
                     if(response.body().getStatus().equals("1")){
-                        Toast.makeText(UpdateActivity.this, response.body().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UpdateActivity.this,"Quote successfully updated", Toast.LENGTH_SHORT).show();
                     }
                     else{
                         Toast.makeText(UpdateActivity.this, response.body().toString(), Toast.LENGTH_SHORT).show();

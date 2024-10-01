@@ -102,7 +102,7 @@ public class ReyclerViewAdapter extends RecyclerView.Adapter<ReyclerViewAdapter.
             @Override
             public void onResponse(Call<DeleteResponse> call, Response<DeleteResponse> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(context, response.body().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Quote Deleted Successfully", Toast.LENGTH_SHORT).show();
                     if (response.body().getStatus().equals("1")) {
                         dataList.remove(position);
                         notifyDataSetChanged();
